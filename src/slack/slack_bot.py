@@ -64,6 +64,7 @@ class SlackBot:
     
     def start(self):
         """Start the Slack bot."""
+        print("Connecting to Slack...", flush=True)
         handler = SocketModeHandler(self.app, self.app_token)
-        print("Slack bot is running!")
+        print("Slack bot is running!", flush=True)
         handler.start()
