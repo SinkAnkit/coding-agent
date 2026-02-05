@@ -12,22 +12,22 @@ def test_agent():
     # Test 1: Initialize agent
     print("1. Initializing agent...")
     agent = CodingAgent()
-    print("✅ Agent initialized\n")
+    print("Agent initialized\n")
     
     # Test 2: Generate simple code
     print("2. Testing code generation...")
     code = agent.generate_code("Write a Python function to calculate fibonacci numbers")
     print(f"Generated code:\n{code[:200]}...\n")
-    print("✅ Code generation works\n")
+    print("Code generation works\n")
     
     # Test 3: Test scraper
     print("3. Testing doc scraper...")
     scraper = DocScraper()
     docs = scraper.scrape("https://example.com")
     print(f"Scraped {len(docs)} characters")
-    print("✅ Scraper works\n")
+    print("Scraper works\n")
     
-    print("🎉 All tests passed!")
+    print("All tests passed!")
 
 if __name__ == "__main__":
     test_agent()

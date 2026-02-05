@@ -25,38 +25,38 @@ class SlackBot:
         def handle_scrape(ack, command, say):
             ack()
             url = command['text']
-            say(f"🔍 Scraping documentation from {url}...")
+            say(f"Scraping documentation from {url}...")
             
             try:
                 docs = self.scraper.scrape(url)
-                say(f"✅ Scraped {len(docs)} characters from {url}")
+                say(f"Scraped {len(docs)} characters from {url}")
             except Exception as e:
-                say(f"❌ Error: {str(e)}")
+                say(f"Error: {str(e)}")
         
         @self.app.command("/generate")
         def handle_generate(ack, command, say):
             ack()
             requirements = command['text']
-            say(f"🤖 Generating code...")
+            say(f"Generating code...")
             
             try:
                 code = self.agent.generate_code(requirements)
                 say(f"```\n{code}\n```")
             except Exception as e:
-                say(f"❌ Error: {str(e)}")
+                say(f"Error: {str(e)}")
         
         @self.app.command("/solve")
         def handle_solve(ack, command, say):
             ack()
             issue_number = int(command['text'])
-            say(f"🔧 Solving issue #{issue_number}...")
+            say(f"Solving issue #{issue_number}...")
             
             try:
                 issue = self.github.get_issue(issue_number)
                 solution = self.agent.solve_issue(issue.title, issue.body)
-                say(f"✅ Solution:\n```\n{solution['solution']}\n```")
+                say(f"Solution:\n```\n{solution['solution']}\n```")
             except Exception as e:
-                say(f"❌ Error: {str(e)}")
+                say(f"Error: {str(e)}")
         
         @self.app.message("hello")
         def handle_hello(message, say):
@@ -65,5 +65,5 @@ class SlackBot:
     def start(self):
         """Start the Slack bot."""
         handler = SocketModeHandler(self.app, self.app_token)
-        print("⚡ Slack bot is running!")
+        print("Slack bot is running!")
         handler.start()
