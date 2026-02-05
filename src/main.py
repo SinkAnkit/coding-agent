@@ -1,10 +1,15 @@
 """Main entry point for the coding agent."""
 import os
+import sys
 from dotenv import load_dotenv
-from src.agent.coding_agent import CodingAgent
-from src.github.github_manager import GitHubManager
-from src.scraper.doc_scraper import DocScraper
-from src.slack.slack_bot import SlackBot
+
+# Add parent directory to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from agent.coding_agent import CodingAgent
+from github.github_manager import GitHubManager
+from scraper.doc_scraper import DocScraper
+from slack.slack_bot import SlackBot
 
 def main():
     # Load environment variables
